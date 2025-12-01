@@ -1,27 +1,13 @@
-#include "history.h"
 #include <iostream>
+#include "history.h"
 
-HistoryList::HistoryList() {
-    head = tail = nullptr;
+int main() {
+
+    PatientHistory h;
+
+    h.addRecord(1, "Ali", 9);
+    h.addRecord(2, "Mira", 7);
+
+    h.displayHistory();
+    return 0;
 }
-
-void HistoryList::add(Patient p) {
-    HistoryNode* node = new HistoryNode(p);
-    if (!head) {
-        head = tail = node;
-    } else {
-        tail->next = node;
-        tail = node;
-    }
-}
-
-void HistoryList::display() {
-    HistoryNode* cur = head;
-    while (cur) {
-        std::cout << cur->data.name 
-                  << " (sev=" << cur->data.severity << ")\n";
-        cur = cur->next;
-    }
-}
-
-/// hello Olloyor, i am GPT
